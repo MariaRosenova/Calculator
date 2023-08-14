@@ -28,7 +28,7 @@ function reducer(state, { type, payload }) {
 
       return {
         ...state,
-        currentOperand: `${state.currentOperand || ""} ${payload.digit}`,
+        currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       };
 
     case ACTIONS.CHOOSE_OPERATION:
@@ -105,7 +105,9 @@ function reducer(state, { type, payload }) {
 
 function evaluate({ currentOperand, previousOperand, operation }) {
   const prev = parseFloat(previousOperand);
+  console.log(prev);
   const current = parseFloat(currentOperand);
+  console.log(current);
   if (isNaN(prev) || isNaN(current)) return "";
 
   let computation = "";
